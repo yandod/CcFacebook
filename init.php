@@ -11,7 +11,7 @@ $menuContainer->addTopMenu(
 );
 
 $pluginContainer = ClassRegistry::getObject('PluginContainer');
-$pluginContainer->installed('cc_facebook','0.5');
+$pluginContainer->installed('cc_facebook','0.6');
 
 $hookContainer = ClassRegistry::getObject('HookContainer');
 $hookContainer->registerElementHook(
