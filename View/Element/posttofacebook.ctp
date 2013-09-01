@@ -16,7 +16,7 @@ if(ClassRegistry::getObject('Facebook')->getUser()){
 <label class="floating">
 <?php
 echo $this->Form->checkbox(
-	'.posttofacebook',
+	'CcFacebook.posttofacebook',
 	array(
 		'value' => 1,
 		'disabled' => $is_facebook_login ? 'none' : 'disabled'

@@ -32,7 +32,7 @@ class ServiceFB {
 	 * event handler method for IssueNew 
 	 */
 	public function afterIssueNewhandler($event) {
-		$fbroup = null;
+        $fbgroup = null;
 		foreach($event->data['project']['CustomValue'] as $row) {
 			if ($row['CustomField']['name'] == 'fbgroup') {
 				$fbgroup = $row['value'];
@@ -41,8 +41,8 @@ class ServiceFB {
 		}
 		if (
 			!$fbgroup
-			|| !isset($this->request->data['Issue'][0]['posttofacebook'])
-			|| !$this->request->data['Issue'][0]['posttofacebook']
+			|| !isset($this->request->data['CcFacebook']['posttofacebook'])
+			|| !$this->request->data['CcFacebook']['posttofacebook']
 		) {
 			return false;
 		}
@@ -50,7 +50,6 @@ class ServiceFB {
 		if ($this->facebook->getUser() == 0) {
 			return false;
 		}
-		
 		$data = $event->data['save_data'];
 		$ret = $this->facebook->api(
 			'/' . $fbgroup . '/feed',
@@ -73,7 +72,7 @@ class ServiceFB {
 	 * event handler method for IssueEdit
 	 */
 	public function afterIssueEdithandler($event) {
-		$fbroup = null;
+        $fbgroup = null;
 		foreach($event->data['project']['CustomValue'] as $row) {
 			if ($row['CustomField']['name'] == 'fbgroup') {
 				$fbgroup = $row['value'];
@@ -83,8 +82,8 @@ class ServiceFB {
 
 		if (
 			!$fbgroup
-			|| !isset($this->request->data['Issue'][0]['posttofacebook'])
-			|| !$this->request->data['Issue'][0]['posttofacebook']
+			|| !isset($this->request->data['CcFacebook']['posttofacebook'])
+			|| !$this->request->data['CcFacebook']['posttofacebook']
 		) {
 			return false;
 		}
